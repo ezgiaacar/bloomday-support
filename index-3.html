@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BloomDay — Support</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F5F1EC;
+      --linen: #EDE8DF;
+      --walnut: #3D2B1F;
+      --oak: #6B4E2A;
+      --stone: #8C7B6B;
+      --sage: #6B8F6B;
+      --terra: #B5623A;
+      --cream: #FDFAF6;
+      --fog: #DDD5CB;
+      --brass: #B89848;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--walnut);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background-color: var(--cream);
+      border-bottom: 1px solid var(--fog);
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--walnut);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      font-size: 9px;
+      font-family: 'Jost', sans-serif;
+      letter-spacing: 3px;
+      color: var(--stone);
+      text-transform: uppercase;
+      display: block;
+      margin-top: -4px;
+    }
+
+    nav a {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      margin-left: 32px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--walnut); }
+
+    /* ── HERO ── */
+    .hero {
+      background-color: var(--linen);
+      border-bottom: 1px solid var(--fog);
+      padding: 80px 40px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 20% 50%, rgba(107,143,107,0.08) 0%, transparent 60%),
+                        radial-gradient(circle at 80% 20%, rgba(181,98,58,0.06) 0%, transparent 50%);
+    }
+
+    .hero-tag {
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 300;
+      color: var(--walnut);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--terra);
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--oak);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.8;
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 0;
+    }
+
+    .hero-divider::before,
+    .hero-divider::after {
+      content: '';
+      width: 48px;
+      height: 1px;
+      background: var(--fog);
+    }
+
+    .hero-divider svg { opacity: 0.5; }
+
+    /* ── CONTACT CARD ── */
+    .contact-section {
+      max-width: 560px;
+      margin: 64px auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--fog);
+    }
+
+    .contact-card {
+      background: var(--cream);
+      border: 1px solid var(--fog);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(61,43,31,0.06);
+    }
+
+    .contact-card .icon { font-size: 36px; margin-bottom: 16px; }
+
+    .contact-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--walnut);
+      margin-bottom: 12px;
+    }
+
+    .contact-card p {
+      font-size: 14px;
+      color: var(--oak);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--walnut);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      border-radius: 6px;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover { opacity: 0.85; }
+
+    /* ── FAQ ── */
+    .faq-section {
+      max-width: 560px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+
+    .faq-item {
+      background: var(--cream);
+      border: 1px solid var(--fog);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 24px;
+      text-align: left;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--walnut);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .faq-q:hover { background: var(--linen); }
+
+    .faq-arrow {
+      font-size: 10px;
+      color: var(--stone);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      font-size: 13px;
+      color: var(--oak);
+      line-height: 1.8;
+      padding: 0 24px;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 200px;
+      padding: 0 24px 18px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--fog);
+      background: var(--cream);
+      padding: 32px 40px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 11px;
+      color: var(--stone);
+      line-height: 1.8;
+    }
+
+    footer a {
+      color: var(--stone);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--walnut); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-tag, .hero h1, .hero p, .hero-divider { animation: fadeUp 0.6s ease both; }
+    .hero h1 { animation-delay: 0.1s; }
+    .hero p  { animation-delay: 0.2s; }
+    .hero-divider { animation-delay: 0.3s; }
+
+    @media (max-width: 600px) {
+      header { padding: 0 20px; }
+      nav a { margin-left: 16px; }
+      .hero { padding: 60px 24px 56px; }
+      .contact-card { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo">
+      BloomDay
+      <span>grow every day</span>
+    </a>
+    <nav>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <p class="hero-tag">Support Center</p>
+    <h1>We're here to help<br>your garden <em>thrive.</em></h1>
+    <p>Have a question about BloomDay? Browse our frequently asked questions or reach out directly — we'd love to hear from you.</p>
+    <div class="hero-divider">
+      <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+        <path d="M6 7 Q3 5 2.5 2.5 Q4 0 6 2.5 Q8 0 9.5 2.5 Q9 5 6 7 Z" fill="#6B8F6B"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <p class="section-label">Frequently Asked Questions</p>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        How do I earn seeds?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">Complete tasks to earn seeds. Each completed task gives you 2 seeds, with bonus seeds if you finish during your scheduled time window or during a focus session. You can earn up to 20 seeds per day.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        How do streaks work?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">Complete at least one task every day to maintain your streak. If you miss a day, your streak resets — but if you have a resilience token, you can recover it. Earn tokens by reaching streak milestones like 7, 14, 30, and 100 days.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        How do I set a task reminder?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">When creating a task, set a start time. Then tap the 🔔 bell icon next to the task — you'll receive a notification 5 minutes before it begins. Make sure notifications are enabled for BloomDay in your phone settings.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        How do plants grow?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">Plants grow when you water them and complete tasks. Each plant has a growth stage — water daily and stay consistent with your tasks to help them bloom. When a plant fully blooms, you earn bonus seeds and unlock a special moment.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        Can I recover a deleted task?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">Unfortunately, deleted tasks cannot be recovered. We recommend using the postpone feature (📅) instead of deleting tasks you might want to return to later.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        How do I cancel my subscription?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">You can manage or cancel your subscription anytime through the App Store. Go to Settings → Apple Account → Subscriptions → BloomDay, then tap Cancel Subscription. Your access continues until the end of the billing period.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        I lost my data after logging out. What happened?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">Your data is tied to your BloomDay account and syncs automatically. If you log back in with the same account, your garden, tasks, and streak should be restored. If something is missing, please contact us and we'll look into it.</div>
+    </div>
+
+  </section>
+
+  <!-- Contact -->
+  <section class="contact-section" id="contact">
+    <p class="section-label">Get in Touch</p>
+    <div class="contact-card">
+      <div class="icon">🌱</div>
+      <h2>Still need help?</h2>
+      <p>We read every message and typically respond within 24 hours. Don't hesitate to reach out — no question is too small.</p>
+      <a href="mailto:bloomdayapp@icloud.com" class="btn">Send us a message</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      BloomDay · Made with care<br>
+      <a href="mailto:bloomdayapp@icloud.com">bloomdayapp@icloud.com</a>
+    </p>
+  </footer>
+
+  <script>
+    function toggle(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+
+</body>
+</html>
